@@ -5,6 +5,7 @@ import { Field, ErrorMessage } from "formik";
 interface props {
   label: string;
   name: string;
+  type: string | number | boolean | any;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   //   },
 }));
 
-const TextFieldUI: React.FC<props> = ({ label, name }) => {
+const TextFieldUI: React.FC<props> = ({ label, name, type }) => {
   const classes = useStyles();
 
   return (
@@ -28,6 +29,7 @@ const TextFieldUI: React.FC<props> = ({ label, name }) => {
         as={TextField}
         fullwidth="true"
         required
+        type={type}
         name={name}
         label={label}
         variant="outlined"
